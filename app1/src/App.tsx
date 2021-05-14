@@ -1,10 +1,12 @@
 import React from 'react';
-import Header from './components/Header';
+import CounterAppOne from './components/CounterAppOne';
 
 const App = () => (
   <div style={{ margin: '20px' }}>
     <div>APP-1</div>
-    <Header />
+    <div>
+      <CounterAppOne />
+    </div>
   </div>
 );
 

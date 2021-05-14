@@ -29,8 +29,10 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'app2',
       library: { type: 'var', name: 'app2' },
-      remotes: {
-        app1: 'app1',
+      filename: 'remoteEntry.js',
+      exposes: {
+        // expose each component
+        './CounterAppTwo': './src/components/CounterAppTwo',
       },
       shared: {
         ...deps,
