@@ -3,7 +3,7 @@ name: s3-deploy
 on:
   push:
     branches:
-      - container-with-remotes
+      - master
 
 jobs:
   build:
