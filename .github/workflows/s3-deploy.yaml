@@ -34,6 +34,5 @@ jobs:
         run: |
           yarn && yarn build
       - name: Deploy app build to S3 bucket
-        run: |
-          pwd
-          aws s3 sync ./dist/ s3://ogz-microfrontend-app-1 --delete
+        working-directory: ./app1
+        run: aws s3 sync ./dist/ s3://ogz-microfrontend-app-1 --delete
