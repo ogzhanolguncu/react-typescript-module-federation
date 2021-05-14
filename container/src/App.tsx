@@ -1,10 +1,9 @@
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-
 //@ts-ignore
-const CounterAppOne = React.lazy(() => import('app1/CounterAppOne'));
+import CounterAppTwo from 'app2/CounterAppTwo';
 //@ts-ignore
-const CounterAppTwo = React.lazy(() => import('app2/CounterAppTwo'));
+import CounterAppOne from 'app1/CounterAppOne';
 
 export default () => (
   <div style={{ margin: '20px' }}>
