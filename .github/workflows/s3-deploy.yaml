@@ -30,10 +30,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install -g yarn
+      - run: yarn && yarn build
 
   deploy:
-    name: Deploy
+    name: Deploying App-1
     needs: install-deps
     runs-on: ubuntu-latest
     steps:
@@ -46,7 +46,5 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Build React App
         working-directory: ./app1
-        run: |
-          yarn && yarn build
       - name: Deploy app build to S3 bucket
-        run: aws s3 sync dist s3://ogz-microfrontend-app-1 --delete
+        run: aws s3 sync ./dist s3://ogz-microfrontend-app-1/dist --delete
