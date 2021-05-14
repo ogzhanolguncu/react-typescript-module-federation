@@ -3,23 +3,22 @@ name: s3-deploy
 on: [push]
 
 jobs:
-
-build-yarn:
-    name: Install-yarn
+  prereq:
+    name: prereq
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [14.x]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install -g yarn
-      with:
-        name: build
-        path: build
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install -g yarn
+        with:
+          name: prereq
+          path: prereq
 
   deploy:
     name: Deploy
