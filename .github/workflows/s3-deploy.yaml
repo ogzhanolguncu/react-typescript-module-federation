@@ -15,6 +15,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Build React App
         run: |
+          pwd
           cd app1
           npm clean
           npm install && npm run build
