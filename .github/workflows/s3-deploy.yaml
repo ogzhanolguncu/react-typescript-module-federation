@@ -17,9 +17,24 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g yarn
 
+  install-deps:
+    name: Installing Dependencies
+    needs: prereq
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install -g yarn
+
   deploy:
     name: Deploying App-1
-    needs: prereq
+    needs: install-deps
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,5 +46,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Build React App
         working-directory: ./app1
+        run: |
+          yarn && yarn build
       - name: Deploy app build to S3 bucket
-        run: aws s3 sync ./dist s3://ogz-microfrontend-app-1/dist --delete
+        run: aws s3 sync ./dist/ s3://ogz-microfrontend-app-1/dist --delete
