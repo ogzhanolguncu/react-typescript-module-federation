@@ -17,7 +17,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g yarn
 
-  deploy:
+  deploy-1:
     name: Deploying App-1
     needs: prereq
     runs-on: ubuntu-latest
@@ -37,8 +37,7 @@ jobs:
         working-directory: ./app1
         run: aws s3 sync ./dist/ s3://ogz-microfrontend-app-1 --delete
 
-
-  deploy:
+  deploy-2:
     name: Deploying App-2
     needs: prereq
     runs-on: ubuntu-latest
@@ -58,7 +57,7 @@ jobs:
         working-directory: ./app2
         run: aws s3 sync ./dist/ s3://ogz-microfrontend-app-2 --delete
 
-  deploy:
+  deploy-container:
     name: Deploying Container
     needs: prereq
     runs-on: ubuntu-latest
