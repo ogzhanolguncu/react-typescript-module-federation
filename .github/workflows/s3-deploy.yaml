@@ -36,3 +36,44 @@ jobs:
       - name: Deploy app build to S3 bucket
         working-directory: ./app1
         run: aws s3 sync ./dist/ s3://ogz-microfrontend-app-1 --delete
+
+
+  deploy:
+    name: Deploying App-2
+    needs: prereq
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Build React App
+        working-directory: ./app2
+        run: |
+          yarn && yarn build
+      - name: Deploy app build to S3 bucket
+        working-directory: ./app2
+        run: aws s3 sync ./dist/ s3://ogz-microfrontend-app-2 --delete
+
+  deploy:
+    name: Deploying Container
+    needs: prereq
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Build React App
+        working-directory: ./container
+        run: |
+          yarn && yarn build
+      - name: Deploy app build to S3 bucket
+        working-directory: ./container
+        run: aws s3 sync ./dist/ s3://ogz-microfrontend-container --delete
