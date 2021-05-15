@@ -1,15 +1,16 @@
-# Webpack 5 Module Federation with React
+# Webpack 5 Module Federation with React/Typescript
 
-This example shows a basic host application loading remote components
+![Workflow](https://github.com/github/docs/actions/workflows/s3-deploy.yaml/build-passing.svg)
+This project shows a container application loading remote components
 
-For more information, visit the article explaining this workflow
+Workflow:
 
-- `app1` expose header component.
-- `app2` import header exposed component from `app1`
+- `app1` expose CounterAppOne component.
+- `app2` expose CounterAppTwo header component.
+- `container` import CounterAppOne and CounterAppTwo component.
 
 ## Running Demo
 
-Run `npm install` and `npm start` inside each repo. This will build and serve your apps on ports `3001`, `3002`.
+Run `yarn build` and `yarn start` to run Lerna commands. This will `Container`, `App-1`, `App-2` build and serve your apps on ports `3000`, `3001`, `3002` respectively.
 
-Example from: https://github.com/module-federation/module-federation-examples/tree/master/basic-host-remote
-Reference: https://webpack.js.org/concepts/module-federation/
+Live example from: http://ogz-microfrontend-container.s3-website.eu-central-1.amazonaws.com/
