@@ -1,5 +1,4 @@
 import React from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 //@ts-ignore
 import CounterAppTwo from 'app2/CounterAppTwo';
 //@ts-ignore
