@@ -10,9 +10,6 @@ module.exports = {
 		port: 3001,
 		open: true,
 	},
-	output: {
-		publicPath: "http://localhost:3001/",
-	},
 	resolve: {
 		extensions: [".ts", ".tsx", ".js"],
 	},
