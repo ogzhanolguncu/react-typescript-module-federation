@@ -19,6 +19,7 @@ jobs:
           npm ci
           npm i -g lerna
           lerna bootstrap
+
   deploy-1:
     name: Deploying App-1
     needs: prereq
