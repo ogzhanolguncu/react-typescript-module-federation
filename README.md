@@ -1,6 +1,8 @@
 # Webpack 5 Module Federation with React/Typescript
 
-This project shows a container application loading remote components
+[![s3-deploy](https://github.com/ogzhanolguncu/react-typescript-module-federation/actions/workflows/s3-deploy.yaml/badge.svg)](https://github.com/ogzhanolguncu/react-typescript-module-federation/actions/workflows/s3-deploy.yaml)
+
+This project consist of three pieces, a host app `container` and two remotes `app1` `app2`.
 
 Workflow:
 
@@ -10,6 +12,44 @@ Workflow:
 
 ## Running Demo
 
-Run `yarn build` and `yarn start` to run Lerna commands. This will `Container`, `App-1`, `App-2` build and serve your apps on ports `3000`, `3001`, `3002` respectively.
+In order to run the demo I highly recommend installing lerna globally via
 
-Live example from: http://ogz-microfrontend-container.s3-website.eu-central-1.amazonaws.com/
+```bash
+npm i -g lerna
+```
+
+Then,
+
+```bash
+lerna bootstrap
+```
+
+Run the command above at the root of your project. This command will make sure you have dependencies you need in order to run this project.
+
+Finally,
+
+```bash
+npm run start
+```
+
+Lerna will start all your projects parallelly and open your browser.
+
+- http://localhost:3000/ (container)
+- http://localhost:3001/ (app1)
+- http://localhost:3002/ (app2)
+
+## Screenshots
+
+![App Screenshot](./app.png)
+
+## Tech Stack
+
+React, Typescript, Chakra UI, Webpack
+
+## Article
+
+If you are curious about building this template head over to [Introduction to Micro Frontends with Module Federation, React and Typescript](https://ogzhanolguncu.com/blog/micro-frontends-with-module-federation)
+
+## Feedback
+
+If you have any feedback, please reach out to me or feel free to open up a issue.

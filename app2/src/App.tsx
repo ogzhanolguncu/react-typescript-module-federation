@@ -1,11 +1,14 @@
-import React from 'react';
-import CounterAppTwo from './components/CounterAppTwo';
+import { Box } from "@chakra-ui/react";
+import React from "react";
+import CounterAppTwo from "./components/CounterAppTwo";
 
-export default () => (
-  <div style={{ margin: '20px' }}>
-    <div>APP-2</div>
-    <div>
-      <CounterAppTwo />
-    </div>
-  </div>
+const App = () => (
+	<Box margin="1.2rem">
+		<Box>APP-1</Box>
+		<Box>
+			<CounterAppTwo />
+		</Box>
+	</Box>
 );
+
+export default App;

@@ -1,13 +1,14 @@
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import CounterAppOne from "./components/CounterAppOne";
 
 const App = () => (
-	<div style={{ margin: "20px" }}>
-		<div>APP-1</div>
-		<div>
+	<Box margin="1.2rem">
+		<Box>APP-1</Box>
+		<Box>
 			<CounterAppOne />
-		</div>
-	</div>
+		</Box>
+	</Box>
 );
 
 export default App;

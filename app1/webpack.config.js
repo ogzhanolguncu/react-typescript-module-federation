@@ -10,9 +10,6 @@ module.exports = {
 		port: 3001,
 		open: true,
 	},
-	output: {
-		publicPath: "http://localhost:3001/",
-	},
 	resolve: {
 		extensions: [".ts", ".tsx", ".js"],
 	},
@@ -28,7 +25,6 @@ module.exports = {
 	plugins: [
 		new ModuleFederationPlugin({
 			name: "app1",
-			library: { type: "var", name: "app1" },
 			filename: "remoteEntry.js",
 			exposes: {
 				// expose each component
