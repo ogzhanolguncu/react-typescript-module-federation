@@ -29,10 +29,9 @@ module.exports = {
 	plugins: [
 		new ModuleFederationPlugin({
 			name: "container",
-			library: { type: "var", name: "container" },
 			remotes: {
-				app1: "app1",
-				app2: "app2",
+				app1: "app1@http://localhost:3001/remoteEntry.js",
+				app2: "app2@http://localhost:3002/remoteEntry.js",
 			},
 			shared: {
 				...deps,
@@ -45,7 +44,7 @@ module.exports = {
 			},
 		}),
 		new HtmlWebpackPlugin({
-			template: "./public/index.dev.html",
+			template: "./public/index.html",
 		}),
 	],
 };

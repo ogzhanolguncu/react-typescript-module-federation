@@ -1,2 +1,1 @@
-import('./bootstrap');
-export {};
+import("./bootstrap");
