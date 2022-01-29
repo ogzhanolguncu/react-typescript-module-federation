@@ -4,6 +4,9 @@ const { ModuleFederationPlugin } = webpack.container;
 const deps = require("./package.json").dependencies;
 require("dotenv").config({ path: "./.env" });
 const isProduction = process.env.NODE_ENV === "production";
+const VersionFile = require("webpack-version-file");
+
+const buildDate = new Date().toLocaleString();
 
 module.exports = {
 	entry: "./src/index.ts",
@@ -26,6 +29,13 @@ module.exports = {
 	},
 
 	plugins: [
+		new webpack.EnvironmentPlugin({ BUILD_DATE: buildDate }),
+		new VersionFile({
+			data: {
+				date: new Date(),
+				environment: process.env.NODE_ENV || "development",
+			},
+		}),
 		new webpack.DefinePlugin({
 			"process.env": JSON.stringify(process.env),
 		}),

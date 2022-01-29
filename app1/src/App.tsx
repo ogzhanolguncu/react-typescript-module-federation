@@ -4,10 +4,10 @@ import CounterAppOne from "./components/CounterAppOne";
 
 const App = () => (
 	<Box margin="1.2rem">
-		<div>APP-1</div>
-		<div>
+		<Box>APP-1</Box>
+		<Box>
 			<CounterAppOne />
-		</div>
+		</Box>
 	</Box>
 );
 
