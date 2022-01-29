@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install -g yarn
+      - run: npm install -g yarn && yarn
 
   deploy-1:
     name: Deploying App-1
@@ -32,7 +32,7 @@ jobs:
       - name: Build React App
         working-directory: ./app1
         run: |
-          yarn && yarn build
+          yarn build
       - name: Deploy app build to S3 bucket
         working-directory: ./app1
         run: aws s3 sync ./dist/ s3://ogz-microfrontend-app-1 --delete
@@ -52,7 +52,7 @@ jobs:
       - name: Build React App
         working-directory: ./app2
         run: |
-          yarn && yarn build
+          yarn build
       - name: Deploy app build to S3 bucket
         working-directory: ./app2
         run: aws s3 sync ./dist/ s3://ogz-microfrontend-app-2 --delete
@@ -72,7 +72,7 @@ jobs:
       - name: Build React App
         working-directory: ./container
         run: |
-          yarn && yarn build
+          yarn build
       - name: Deploy app build to S3 bucket
         working-directory: ./container
         run: aws s3 sync ./dist/ s3://ogz-microfrontend-container --delete
