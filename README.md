@@ -24,7 +24,7 @@ Then,
 lerna bootstrap
 ```
 
-Run the command above at the root of your project. This command will make sure you have depedencies you need.
+Run the command above at the root of your project. This command will make sure you have dependencies you need in order to run this project.
 
 Finally,
 
