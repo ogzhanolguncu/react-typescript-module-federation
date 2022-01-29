@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install -g yarn && yarn
+      - run: npm install -g yarn lerna && yarn
 
   deploy-1:
     name: Deploying App-1
