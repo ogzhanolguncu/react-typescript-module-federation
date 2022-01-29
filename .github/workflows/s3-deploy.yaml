@@ -34,6 +34,7 @@ jobs:
       - name: Build React App
         working-directory: ./app1
         run: |
+          npm i
           npm run build
       - name: Deploy app build to S3 bucket
         working-directory: ./app1
@@ -54,6 +55,7 @@ jobs:
       - name: Build React App
         working-directory: ./app2
         run: |
+          npm i
           npm run build
       - name: Deploy app build to S3 bucket
         working-directory: ./app2
