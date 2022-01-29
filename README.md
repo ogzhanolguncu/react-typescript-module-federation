@@ -1,6 +1,5 @@
 # Webpack 5 Module Federation with React/Typescript
 
-![Workflow](https://github.com/dwyl/repo-badges/blob/master/svg/build-passing.svg)
 This project shows a container application loading remote components
 
 Workflow:
