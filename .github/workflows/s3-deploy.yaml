@@ -15,7 +15,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
+        run: |
+          npm ci
+          npm i -g lerna
+          lerna bootstrap
   deploy-1:
     name: Deploying App-1
     needs: prereq
@@ -31,7 +34,6 @@ jobs:
       - name: Build React App
         working-directory: ./app1
         run: |
-          npm i
           npm run build
       - name: Deploy app build to S3 bucket
         working-directory: ./app1
@@ -52,7 +54,6 @@ jobs:
       - name: Build React App
         working-directory: ./app2
         run: |
-          npm i
           npm run build
       - name: Deploy app build to S3 bucket
         working-directory: ./app2

@@ -7,7 +7,6 @@ module.exports = {
 	entry: "./src/index.ts",
 	mode: "development",
 	devServer: {
-		contentBase: path.join(__dirname, "dist"),
 		port: 3001,
 		open: true,
 	},
