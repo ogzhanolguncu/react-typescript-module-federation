@@ -4,7 +4,7 @@ import CounterAppTwo from "./components/CounterAppTwo";
 
 const App = () => (
 	<Box margin="1.2rem">
-		<Box>APP-1</Box>
+		<Box>APP-2</Box>
 		<Box>
 			<CounterAppTwo />
 		</Box>
