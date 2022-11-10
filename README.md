@@ -44,7 +44,7 @@ Lerna will start all your projects parallelly and open your browser.
 
 ## Tech Stack
 
-React, Typescript, Chakra UI, Webpack
+React, Typescript, Chakra UI, Webpack, Lerna, React Router V6
 
 ## Article
 
